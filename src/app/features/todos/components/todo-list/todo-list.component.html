@@ -1,0 +1,16 @@
+@if (todos().length > 0) {
+  <section class="mt-5 space-y-3">
+    @for (todo of todos(); track todo.id) {
+      <app-todo-item
+        [todo]="todo"
+        (todoToggled)="todoToggled.emit($event)"
+        (todoDeleted)="todoDeleted.emit($event)"
+      />
+    }
+  </section>
+} @else {
+  <section class="mt-5 rounded-md border border-dashed border-slate-300 bg-slate-50 p-8 text-center">
+    <p class="font-semibold text-slate-800">Todavía no hay tareas cargadas.</p>
+    <p class="mt-1 text-sm text-slate-500">Agregá una tarea desde el formulario para empezar.</p>
+  </section>
+}

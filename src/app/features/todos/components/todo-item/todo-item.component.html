@@ -1,0 +1,50 @@
+<article
+  class="grid grid-cols-[auto_1fr_auto] items-start gap-3 rounded-md border p-4 transition hover:shadow-md sm:gap-4"
+  [class.border-emerald-200]="todo().completed"
+  [class.bg-emerald-50]="todo().completed"
+  [class.border-slate-200]="!todo().completed"
+  [class.bg-white]="!todo().completed"
+>
+  <input
+    class="mt-1 h-5 w-5 rounded border-slate-300 text-emerald-600 focus:ring-emerald-500"
+    type="checkbox"
+    aria-label="Cambiar estado de la tarea"
+    [checked]="todo().completed"
+    (change)="toggleTodo()"
+  />
+
+  <div class="min-w-0 flex-1">
+    <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+      <h2
+        class="break-words text-base font-semibold text-slate-950"
+        [class.line-through]="todo().completed"
+        [class.text-slate-500]="todo().completed"
+      >
+        {{ todo().title }}
+      </h2>
+
+      <span
+        class="w-fit rounded-full px-2.5 py-1 text-xs font-semibold"
+        [class.bg-emerald-100]="todo().completed"
+        [class.text-emerald-700]="todo().completed"
+        [class.bg-amber-100]="!todo().completed"
+        [class.text-amber-700]="!todo().completed"
+      >
+        {{ todo().completed ? 'Completada' : 'Pendiente' }}
+      </span>
+    </div>
+
+    <p class="mt-1 text-sm text-slate-500">
+      Creada el {{ todo().createdAt | date: 'dd/MM/yyyy HH:mm' }}
+    </p>
+  </div>
+
+  <button
+    class="h-9 w-9 rounded-md border border-red-200 bg-red-50 text-sm font-bold text-red-600 transition hover:border-red-300 hover:bg-red-100 focus:outline-none focus:ring-4 focus:ring-red-100"
+    type="button"
+    aria-label="Eliminar tarea"
+    (click)="deleteTodo()"
+  >
+    X
+  </button>
+</article>
