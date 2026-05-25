@@ -1,59 +1,114 @@
-# TpTodoList
+# ToDo List - Angular
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.9.
+Trabajo practico desarrollado para la materia **Programacion V** de la Licenciatura en Sistemas de Informacion.
 
-## Development server
+La aplicacion permite administrar una lista de tareas desde una interfaz responsive creada con Angular y Tailwind CSS.
 
-To start a local development server, run:
+## Captura de Pantalla
 
-```bash
-ng serve
+![Vista principal de la ToDo List](public/screenshots/todo-list.png)
+
+## Funcionalidades
+
+- Crear nuevas tareas.
+- Guardar las tareas en un arreglo manejado por un servicio.
+- Marcar tareas como completadas o pendientes.
+- Eliminar tareas individuales.
+- Limpiar todas las tareas completadas.
+- Limpiar toda la lista.
+- Mostrar la fecha y hora de creacion de cada tarea.
+- Visualizar tareas totales, pendientes y completadas.
+- Calcular y mostrar el porcentaje de progreso.
+- Interfaz responsive con estilos realizados en Tailwind CSS.
+
+## Tecnologias Utilizadas
+
+- Angular
+- TypeScript
+- Tailwind CSS
+- Git / GitHub
+
+## Estructura Principal
+
+```txt
+src/app/
+  core/
+    models/
+      todo.model.ts
+    services/
+      todo.service.ts
+
+  features/
+    todos/
+      components/
+        todo-form/
+        todo-item/
+        todo-list/
+        todo-stats/
+      pages/
+        todo-page/
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Componentes
 
-## Code scaffolding
+**TodoPageComponent**  
+Pagina principal de la aplicacion. Integra el formulario, las estadisticas, la lista de tareas y las acciones generales.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+**TodoFormComponent**  
+Formulario para ingresar una nueva tarea.
 
-```bash
-ng generate component component-name
+**TodoListComponent**  
+Componente encargado de renderizar el listado de tareas.
+
+**TodoItemComponent**  
+Representa una tarea individual. Permite marcarla como completada o eliminarla.
+
+**TodoStatsComponent**  
+Muestra los contadores de tareas totales, pendientes, completadas y el porcentaje de progreso.
+
+## Modelo de Datos
+
+Cada tarea utiliza la siguiente estructura:
+
+```ts
+export interface Todo {
+  id: number;
+  title: string;
+  completed: boolean;
+  createdAt: Date;
+}
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Ejecucion del Proyecto
+
+Instalar dependencias:
 
 ```bash
-ng generate --help
+npm install
 ```
 
-## Building
-
-To build the project run:
+Ejecutar el servidor de desarrollo:
 
 ```bash
-ng build
+npm start
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Abrir en el navegador:
 
-## Running unit tests
+```txt
+http://localhost:4200
+```
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+## Build
+
+Para generar una version de produccion:
 
 ```bash
-ng test
+npm run build
 ```
 
-## Running end-to-end tests
+## Autor
 
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Alumno: Luciano Agüero  
+Materia: Programacion V  
+Carrera: Licenciatura en Sistemas de Informacion
